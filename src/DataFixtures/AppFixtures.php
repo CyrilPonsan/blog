@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Categorie;
+use App\Entity\Commentaire;
 use COM;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -24,6 +25,21 @@ class AppFixtures extends Fixture
         $article->setNbreVues(0);
         $article->setCategorie($cat);
         $manager->persist($article);
+
+        $comm1 = new Commentaire();
+        $comm1->setDate(new \DateTime());
+        $comm1->setContenu("Le bois c'est bien pour les calculs à virgule flottante lol");
+        $comm1->setPublie(false);
+        $comm1->setArticle($article);
+        $manager->persist($comm1);
+
+        $comm2 = new Commentaire();
+        $comm2->setDate(new \DateTime());
+        $comm2->setContenu("Le bois c'est le futur !");
+        $comm2->setPublie(false);
+        $comm2->setArticle($article);
+        $manager->persist($comm2);
+
 
         $manager->flush();
     }
