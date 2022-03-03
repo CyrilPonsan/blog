@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<main>
+		<h1>{{ article.titre }}</h1>
+		<h2>by
+			{{ article.user.pseudo }}</h2>
+		<p>{{ article.contenu }}</p>
+	</main>
+{% endblock %}

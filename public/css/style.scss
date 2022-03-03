@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:wght@300&display=swap');
+$titre: architects daughter;
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    background-color: grey;
+    nav {
+        font-family: $titre;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        > div:nth-child(1) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > div:nth-child(1) {
+                width: 75%;
+                font-size: calc(12px + 5vw);
+            }
+            > div:nth-child(2) {
+                > img {
+                    height: 6vw;
+                    width: 6vw;
+                }
+            }
+        }
+    }
+}

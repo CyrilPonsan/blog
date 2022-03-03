@@ -18,4 +18,19 @@ class MainController extends AbstractController
             "articles" => $articles
         ]);
     }
+
+    #[Route('/article/{id}', name: 'app_article')]
+    public function article(ArticleRepository $articleRepository, int $id): Response
+    {
+        $article = $articleRepository->findOneBy(["id" => $id]);
+        return $this->render('main/article.html.twig', [
+            "article" => $article
+        ]);
+    }
+
+    #[Route('/about', name: 'app_about')]
+    public function about(): Response
+    {
+        return $this->render('main/about.html.twig', []);
+    }
 }
