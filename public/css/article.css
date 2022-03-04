@@ -3,15 +3,16 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 5vh;
   width: 100%;
-  height: 50vh;
+  height: 50%;
 }
-main section {
+main > section:nth-child(1) {
   width: 80%;
   height: 80%;
   font-family: roboto;
 }
-main section article {
+main > section:nth-child(1) article {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,28 +20,69 @@ main section article {
   align-items: center;
   justify-content: center;
 }
-main section article h1 {
-  font-size: calc(12px + 3vw);
+main > section:nth-child(1) article h1 {
+  font-size: calc(12px + 4vw);
 }
-main section article p {
+main > section:nth-child(1) article p {
   font-size: calc(12px + 2vw);
   text-align: justify;
   color: black;
 }
-main section article a {
+main > section:nth-child(1) article a {
   font-size: calc(12px + 1.5vw);
 }
-main section article img {
+main > section:nth-child(1) article h3 {
+  color: black;
+}
+main > section:nth-child(1) article img {
   width: 100%;
   height: auto;
 }
-main section article > div:nth-child(1) {
+main > section:nth-child(1) article > div:nth-child(1) {
   display: flex;
   flex-direction: column;
   row-gap: 2vh;
 }
-main section article > div:nth-child(1) > div {
+main > section:nth-child(1) article > div:nth-child(1) > div {
   width: 100%;
   display: flex;
   justify-content: end;
+  align-items: center;
+  -moz-column-gap: 1vw;
+       column-gap: 1vw;
+}
+main > section:nth-child(1) article > div:nth-child(1) > div > h2:nth-child(1) {
+  color: black;
+}
+main > section:nth-child(2) {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2vh;
+  font-family: roboto;
+}
+main > section:nth-child(2) > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+main > section:nth-child(2) > div:nth-child(1) h2 {
+  font-size: calc(12px + 3vw);
+  color: #046908;
+}
+main > section:nth-child(2) > article {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+  align-items: start;
+}
+main > section:nth-child(2) > article > div:nth-child(1) {
+  color: blue;
+  font-size: calc(12px + 1.5vw);
+}
+main > section:nth-child(2) > article > div:nth-child(2) > p {
+  font-size: calc(12px + 2vw);
 }/*# sourceMappingURL=article.css.map */

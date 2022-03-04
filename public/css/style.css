@@ -8,6 +8,9 @@ body {
   width: 100vw;
   background-color: #DADADA;
   color: #046908;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
 }
 body nav {
   background-color: #C4C4C4;

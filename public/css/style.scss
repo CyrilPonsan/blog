@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:wght@300&display=swap');
 $titre: architects daughter;
+$green: #046908;
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +8,10 @@ $titre: architects daughter;
 body {
     width: 100vw;
     background-color: #DADADA;
-    color: #046908;
+    color: $green;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vh;
     nav {
         background-color: #C4C4C4;
         font-family: $titre;

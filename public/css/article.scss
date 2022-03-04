@@ -1,11 +1,13 @@
+$green: #046908;
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    row-gap: 5vh;
     width: 100%;
-    height: 50vh;
-    section {
+    height: 50%;
+    > section:nth-child(1) {
         width: 80%;
         height: 80%;
         font-family: roboto;
@@ -17,7 +19,7 @@ main {
             align-items: center;
             justify-content: center;
             h1 {
-                font-size: calc(12px + 3vw);
+                font-size: calc(12px + 4vw);
             }
             p {
                 font-size: calc(12px + 2vw);
@@ -26,6 +28,9 @@ main {
             }
             a {
                 font-size: calc(12px + 1.5vw);
+            }
+            h3 {
+                color: black;
             }
             img {
                 width: 100%;
@@ -39,6 +44,45 @@ main {
                     width: 100%;
                     display: flex;
                     justify-content: end;
+                    align-items: center;
+                    column-gap: 1vw;
+                    > h2:nth-child(1) {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    > section:nth-child(2) {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 2vh;
+        font-family: roboto;
+        > div:nth-child(1) {
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            h2 {
+                font-size: calc(12px + 3vw);
+                color: $green;
+            }
+        }
+        > article {
+            color: black;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;  
+            align-items: start;
+            > div:nth-child(1) {
+                color: blue;
+                font-size: calc(12px + 1.5vw);
+            }
+            > div:nth-child(2) {
+                > p {
+                    font-size: calc(12px + 2vw);
                 }
             }
         }

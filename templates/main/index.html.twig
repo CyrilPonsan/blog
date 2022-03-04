@@ -4,13 +4,18 @@
 {% endblock %}
 {% block stylesheets %}
 	{{ parent() }}
+	<link rel="stylesheet" href="css/home.css">
 {% endblock %}
 {% block body %}
 	<main>
-		{% for categorie in categories %}
-		<a href="{{ path('app_categorie', { id: categorie.id }) }}">
-			<h2>{{ categorie.nom }}</h2>
-			</a>
-		{% endfor %}
+		<section>
+			{% for categorie in categories %}
+				<div>
+					<a href="{{ path('app_categorie', { id: categorie.id }) }}">
+						<h2>{{ categorie.nom }}</h2>
+					</a>
+				</div>
+			{% endfor %}
+		</section>
 	</main>
 {% endblock %}

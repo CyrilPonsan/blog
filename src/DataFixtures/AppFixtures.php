@@ -40,7 +40,7 @@ class AppFixtures extends Fixture
         for ($i = 1; $i < 4; $i++) :
 
             $cat = new Categorie();
-            $cat->setNom("Niouse Taik");
+            $cat->setNom("Niouse Taik-" . $i);
             $manager->persist($cat);
 
             for ($j = 1; $j < 6; $j++) :
@@ -59,7 +59,7 @@ class AppFixtures extends Fixture
 
                     $comm = new Commentaire();
                     $comm->setDate(new \DateTime());
-                    $comm->setContenu($k . "Le bois c'est bien pour les calculs à virgule flottante lol");
+                    $comm->setContenu($k . " : Le bois c'est bien pour les calculs à virgule flottante lol");
                     $comm->setPublie(false);
                     $comm->setArticle($article);
                     $comm->setUser($user);

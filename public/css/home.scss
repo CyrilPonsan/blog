@@ -1,12 +1,16 @@
 main {
-    width: 75%;
+    width: 100%;
     height: 50vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     > section {
+        width: 75%;
+        height: 80%;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         row-gap: 3vh;
         > div {
             > a {
@@ -14,7 +18,7 @@ main {
                 color: #046908;
                 > h2 {
                     font-family: roboto;
-                    font-size: calc(12px + 3vw);
+                    font-size: calc(12px + 5vw);
                 }
             }
         }

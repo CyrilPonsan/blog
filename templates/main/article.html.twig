@@ -17,8 +17,15 @@
 					<img src="{{ 'img/' ~ article.imageSrc }}" alt="illustration article">
 					<p>{{ article.contenu }}</p>
 					<div>
-						<h2>by
+						<h2>publié le
+							{{ article.date | date("d/m/Y") }}</h2>
+						<h2>
+							par
 							{{ article.user.pseudo }}</h2>
+					</div>
+					<div>
+						<h2>Nombre de vues :
+							{{ article.nbreVues }}</h2>
 					</div>
 				</div>
 				<div>
@@ -27,6 +34,27 @@
 					</a>
 				</div>
 			</article>
+		</section>
+		<section>
+			<div>
+				<h2>{{ total }}
+					Commentaires :
+				</h2>
+			</div>
+			{% for commentaire in commentaires %}
+				<article>
+					<div>
+						{{ commentaire.user.pseudo }}
+						le
+						{{ commentaire.date | date("d/m/Y")}}
+					</div>
+					<div>
+						<p>
+							{{ commentaire.contenu }}
+						</p>
+					</div>
+				</article>
+			{% endfor %}
 		</section>
 	</main>
 {% endblock %}
