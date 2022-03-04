@@ -1,1 +1,13 @@
 {% extends "base.html.twig" %}
+{% block title %}A Propos{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="css/about.css">
+{% endblock %}
+{% block body %}
+	<main>
+		<section>
+			<img src="img/toto_fanclub.webp" alt="photo de toto">
+		</section>
+	</main>
+{% endblock %}

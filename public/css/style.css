@@ -13,18 +13,22 @@ body {
   row-gap: 5vh;
 }
 body nav {
+  position: relative;
   background-color: #C4C4C4;
   font-family: architects daughter;
-  width: 100%;
+  width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  row-gap: 1vh;
 }
 body nav > div:nth-child(1) {
-  padding: 0.5vh;
+  padding: 0.75vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px black solid;
 }
 body nav > div:nth-child(1) > div:nth-child(1) {
   width: 75%;
@@ -33,4 +37,32 @@ body nav > div:nth-child(1) > div:nth-child(1) {
 body nav > div:nth-child(1) > img {
   height: 10vw;
   width: 10vw;
+}
+body nav > div:nth-child(2) {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  display: none;
+  background-color: #C4C4C4;
+  flex-direction: column;
+  align-items: center;
+  font-family: roboto;
+  padding: 0.75vh;
+}
+body nav > div:nth-child(2) > div:nth-child(1) {
+  width: 50%;
+}
+body nav > div:nth-child(2) > div:nth-child(1) > ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  list-style: none;
+}
+body nav > div:nth-child(2) > div:nth-child(1) > ul > li {
+  font-size: calc(12px + 3vw);
+  font-weight: bold;
+}
+body nav > div:nth-child(2) > div:nth-child(1) > ul > li > a {
+  text-decoration: none;
+  color: #046908;
 }/*# sourceMappingURL=style.css.map */

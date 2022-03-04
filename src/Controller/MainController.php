@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\CommentaireRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,11 +63,9 @@ class MainController extends AbstractController
         return $this->render('main/about.html.twig', []);
     }
 
-    public function update(ManagerRegistry $doctrine, int $id): void
+    #[Route('/compte', name: 'app_compte')]
+    public function compte(): Response
     {
-        $manager = $doctrine->getManager();
-        $article = $manager->getRepository(Article::class)->find($id);
-        $article->setNbreVues($article->getNbreVues() + 1);
-        $manager->flush();
+        return $this->render('main/compte.html.twig', []);
     }
 }
