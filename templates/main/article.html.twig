@@ -5,13 +5,28 @@
 
 {% block stylesheets %}
 	{{ parent() }}
+	<link rel="stylesheet" href="css/article.css">
 {% endblock %}
 
 {% block body %}
 	<main>
-		<h1>{{ article.titre }}</h1>
-		<p>{{ article.contenu }}</p>
-		<h2>by
-			{{ article.user.pseudo }}</h2>
+		<section>
+			<article>
+				<div>
+					<h1>{{ article.titre }}</h1>
+					<img src="{{ 'img/' ~ article.imageSrc }}" alt="illustration article">
+					<p>{{ article.contenu }}</p>
+					<div>
+						<h2>by
+							{{ article.user.pseudo }}</h2>
+					</div>
+				</div>
+				<div>
+					<a href="{{ path('app_categorie', { id: article.categorie.id }) }}">
+						<h3>Retour</h3>
+					</a>
+				</div>
+			</article>
+		</section>
 	</main>
 {% endblock %}

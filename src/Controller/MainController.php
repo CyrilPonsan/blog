@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,12 +11,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'app_main')]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(CategorieRepository $categorieRepository): Response
     {
-        $articles = $articleRepository->findAll(); 
+        $cat = $categorieRepository->findAll(); 
 
         return $this->render('main/index.html.twig', [
-            "articles" => $articles
+            "categories" => $cat,
+        ]);
+    }
+
+    #[Route('/categorie{id}', name: 'app_categorie')]
+    public function categorie(CategorieRepository $categorieRepository, ArticleRepository $articleRepository, int $id): Response
+    {
+        $cat = $categorieRepository->findOneBy(["id" => $id]);
+        $articles = $articleRepository->findBy(["categorie" => $id]);
+        return $this->render('main/categorie.html.twig', [
+            "categorie" => $cat,
+            "articles" => $articles,
         ]);
     }
 
@@ -24,7 +36,7 @@ class MainController extends AbstractController
     {
         $article = $articleRepository->findOneBy(["id" => $id]);
         return $this->render('main/article.html.twig', [
-            "article" => $article
+            "article" => $article,
         ]);
     }
 

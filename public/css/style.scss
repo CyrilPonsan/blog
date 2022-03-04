@@ -6,13 +6,16 @@ $titre: architects daughter;
 }
 body {
     width: 100vw;
-    background-color: grey;
+    background-color: #DADADA;
+    color: #046908;
     nav {
+        background-color: #C4C4C4;
         font-family: $titre;
         width: 100%;
         display: flex;
         justify-content: space-around;
         > div:nth-child(1) {
+            padding: .5vh;
             width: 100%;
             display: flex;
             justify-content: center;

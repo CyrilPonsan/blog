@@ -6,15 +6,18 @@
 
 body {
   width: 100vw;
-  background-color: grey;
+  background-color: #DADADA;
+  color: #046908;
 }
 body nav {
+  background-color: #C4C4C4;
   font-family: architects daughter;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 body nav > div:nth-child(1) {
+  padding: 0.5vh;
   width: 100%;
   display: flex;
   justify-content: center;

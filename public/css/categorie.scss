@@ -1,0 +1,20 @@
+main {
+    width: 75%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        > div {
+            > a {
+                > h2 {
+                    font-family: roboto;
+                    font-size: calc(12px + 3vw);
+                }
+            }
+        }
+    }
+}

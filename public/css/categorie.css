@@ -1,0 +1,16 @@
+main {
+  width: 75%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main > section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3vh;
+}
+main > section > div > a > h2 {
+  font-family: roboto;
+  font-size: calc(12px + 3vw);
+}/*# sourceMappingURL=categorie.css.map */
