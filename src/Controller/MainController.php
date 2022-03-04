@@ -19,7 +19,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{id}', name: 'app_article')]
+    #[Route('/article{id}', name: 'app_article')]
     public function article(ArticleRepository $articleRepository, int $id): Response
     {
         $article = $articleRepository->findOneBy(["id" => $id]);

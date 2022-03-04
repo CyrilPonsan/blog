@@ -19,13 +19,11 @@ body {
             align-items: center;
             > div:nth-child(1) {
                 width: 75%;
-                font-size: calc(12px + 5vw);
+                font-size: calc(12px + 8vw);
             }
-            > div:nth-child(2) {
-                > img {
-                    height: 6vw;
-                    width: 6vw;
-                }
+            > img {
+                height: 10vw;
+                width: 10vw;
             }
         }
     }

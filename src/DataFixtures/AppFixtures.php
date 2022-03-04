@@ -37,17 +37,17 @@ class AppFixtures extends Fixture
         $user1->setPassword($hash);
         $manager->persist($user1);
 
-        for ($i = 0; $i < 3; $i++) :
+        for ($i = 1; $i < 4; $i++) :
 
             $cat = new Categorie();
             $cat->setNom("Niouse Taik");
             $manager->persist($cat);
 
-            for ($j = 0; $j < 2; $j++) :
+            for ($j = 1; $j < 6; $j++) :
 
                 $article = new Article();
                 $article->setTitre("Les ordinateurs en bois " . $i . "-" .$j);
-                $article->setContenu($j . "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis aspernatur, praesentium ea harum ipsam quam ut eum cum, odio earum dolor magnam. Eius rerum alias odio magni non, consequatur vero fugiat voluptatibus! Possimus, vel! Excepturi atque distinctio tempora commodi, et non impedit quasi ut, quam laboriosam dignissimos consectetur officiis quidem ipsum placeat. Cupiditate nihil veniam perferendis tempore porro, vero temporibus nisi adipisci cumque harum maiores quod laborum exercitationem ipsa repellat reiciendis delectus nostrum quisquam? Cumque officia totam quasi magni. Quod, quidem obcaecati? Obcaecati tenetur, ipsa perferendis recusandae quia accusantium impedit in rerum sequi hic totam unde delectus aspernatur fuga deserunt.");
+                $article->setContenu("Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis aspernatur, praesentium ea harum ipsam quam ut eum cum, odio earum dolor magnam. Eius rerum alias odio magni non, consequatur vero fugiat voluptatibus! Possimus, vel! Excepturi atque distinctio tempora commodi, et non impedit quasi ut, quam laboriosam dignissimos consectetur officiis quidem ipsum placeat. Cupiditate nihil veniam perferendis tempore porro, vero temporibus nisi adipisci cumque harum maiores quod laborum exercitationem ipsa repellat reiciendis delectus nostrum quisquam? Cumque officia totam quasi magni. Quod, quidem obcaecati? Obcaecati tenetur, ipsa perferendis recusandae quia accusantium impedit in rerum sequi hic totam unde delectus aspernatur fuga deserunt.");
                 $article->setDate(new \DateTime());
                 $article->setImageSrc("burger.png");
                 $article->setNbreVues(0);
@@ -55,7 +55,7 @@ class AppFixtures extends Fixture
                 $article->setUser($user1);
                 $manager->persist($article);
 
-                for ($k = 0; $k < 5; $k++) :
+                for ($k = 1; $k < 6; $k++) :
 
                     $comm = new Commentaire();
                     $comm->setDate(new \DateTime());
