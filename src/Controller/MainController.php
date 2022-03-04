@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\LoginType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\CommentaireRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -34,7 +37,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/article{id}', name: 'app_article')]
+    #[Route('/article-{id}', name: 'app_article')]
     public function article(ManagerRegistry $doctrine, ArticleRepository $articleRepository, CommentaireRepository $commentaireRepository, int $id): Response
     {
         session_start();
@@ -63,9 +66,14 @@ class MainController extends AbstractController
         return $this->render('main/about.html.twig', []);
     }
 
-    #[Route('/compte', name: 'app_compte')]
-    public function compte(): Response
+    #[Route('/connexion', name: 'app_connexion')]
+    public function connexion(Request $request): Response
     {
-        return $this->render('main/compte.html.twig', []);
+        $user = new User();
+        $form = $this->createForm(LoginType::class, $user);
+
+        return $this->renderForm('main/connexion.html.twig', [
+            'form' => $form,
+        ]);
     }
 }

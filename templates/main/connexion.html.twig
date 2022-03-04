@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block title %}Compte
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="css/connexion.css">
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<main>
+		<section>
+			{{ form(form) }}
+			</section>
+		</main>
+	{% endblock %}

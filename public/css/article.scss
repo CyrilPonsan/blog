@@ -18,6 +18,10 @@ main {
             row-gap: 3vh;
             align-items: center;
             justify-content: center;
+            padding: 2vw;
+            border: solid black 1px;
+            background-color: white;
+            box-shadow: 5px 5px 5px black;
             h1 {
                 font-size: calc(12px + 4vw);
             }
@@ -71,6 +75,10 @@ main {
             }
         }
         > article {
+            padding: 2vw;
+            border: solid black 1px;
+            background-color: white;
+            box-shadow: 5px 5px 5px black;
             color: black;
             display: flex;
             flex-direction: column;

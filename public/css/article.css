@@ -19,6 +19,10 @@ main > section:nth-child(1) article {
   row-gap: 3vh;
   align-items: center;
   justify-content: center;
+  padding: 2vw;
+  border: solid black 1px;
+  background-color: white;
+  box-shadow: 5px 5px 5px black;
 }
 main > section:nth-child(1) article h1 {
   font-size: calc(12px + 4vw);
@@ -73,6 +77,10 @@ main > section:nth-child(2) > div:nth-child(1) h2 {
   color: #046908;
 }
 main > section:nth-child(2) > article {
+  padding: 2vw;
+  border: solid black 1px;
+  background-color: white;
+  box-shadow: 5px 5px 5px black;
   color: black;
   display: flex;
   flex-direction: column;
