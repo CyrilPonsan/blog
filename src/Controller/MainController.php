@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaire;
 use App\Entity\User;
+use App\Form\CommentaireType;
 use App\Form\LoginType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
@@ -38,23 +40,43 @@ class MainController extends AbstractController
     }
 
     #[Route('/article-{id}', name: 'app_article')]
-    public function article(ManagerRegistry $doctrine, ArticleRepository $articleRepository, CommentaireRepository $commentaireRepository, int $id): Response
+    public function article(UserRepository $userRepository, Request $request, ManagerRegistry $doctrine, ArticleRepository $articleRepository, CommentaireRepository $commentaireRepository, int $id): Response
     {
-        session_start();
         $article = $articleRepository->findOneBy(["id" => $id]);
-        if (!isset($_SESSION['vues']) || !in_array($id, $_SESSION['vues'])) :
+        if (session_status() === 0) :
+            session_start();
+        endif;
+        if (!isset($_SESSION['vues'])) :
+            $_SESSION['vues'] = array();
+        endif;
+        if (!in_array($id, $_SESSION['vues'])) :
             $manager = $doctrine->getManager();
             $article->setNbreVues($article->getNbreVues() + 1);
             $manager->flush();
-            $_SESSION['vues'] = array();
             array_push($_SESSION['vues'], $id);
+            //dd($_SESSION['vues']);
         endif;
-        $commentaires = $commentaireRepository->findBy(["article" => $id]);
+        $total = count($commentaireRepository->findBy(["article" => $id]));
+
+        $commForm = $this->createForm(CommentaireType::class);
+        $commForm->handleRequest($request);
+
+        if ($commForm->isSubmitted() && $commForm->isValid()) :
+            $comm = $commForm->getData();
+            $comm->setDate(new \DateTime());
+            $comm->setPublie(true);
+            $comm->setArticle($article);
+            $comm->setUser($userRepository->findBy(["pseudo" => "tata"])[0]);
+            $manager = $doctrine->getManager();
+            $manager->persist($comm);
+            $manager->flush();
+            return $this->redirectToRoute('app_article', ["id" => $id]);
+        endif;
 
         return $this->render('main/article.html.twig', [
             "article" => $article,
-            "commentaires" => $commentaires,
-            "total" => count($commentaires),
+            "total" => $total,
+            "commForm" => $commForm->createView(),
         ]);
     }
 
@@ -62,18 +84,40 @@ class MainController extends AbstractController
     public function about(): Response
     {
         session_start();
-        session_destroy();
+        if (isset($_SESSION['vues'])) :
+            unset($_SESSION['vues']);
+        endif;
         return $this->render('main/about.html.twig', []);
     }
 
+
+    /*
     #[Route('/connexion', name: 'app_connexion')]
-    public function connexion(Request $request): Response
+    public function connexion(Request $request, UserRepository $userRepository): Response
     {
         $user = new User();
         $form = $this->createForm(LoginType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) :
+            $request = $form->getData();
+            dd($request);
+            $formUser = strip_tags($request['pseudo']);
+            $formPasswd = strip_tags($request['password']);
+            $user = $userRepository->findOneBy(['pseudo' => $formUser]);
+            if ($user !== null && $user->getPassword() === $formPasswd) :
+                return $this->redirectToRoute('app_connexionOk');
+            endif;
+        endif;
 
         return $this->renderForm('main/connexion.html.twig', [
             'form' => $form,
         ]);
     }
+
+    #[Route('/connexionOk', name: 'app_connexionOk')]
+    public function connexionOk(): Response
+    {
+        return $this->render('main/connexionOk.html.twig', []);
+    }
+    */
 }

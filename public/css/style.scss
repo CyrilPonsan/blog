@@ -5,6 +5,42 @@ $green: #046908;
     margin: 0;
     padding: 0;
 }
+.bouton {
+    border: 4px double #cccccc;
+    padding: .2vw 1vw .2vw 1vw;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: orange;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  
+  .bouton:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  
+  .closeBouton {
+    border: 4px double #cccccc;
+    padding: .2vw 1vw .2vw 1vw;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  
+  .closeBouton:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
 body {
     width: 100vw;
     background-color: #DADADA;

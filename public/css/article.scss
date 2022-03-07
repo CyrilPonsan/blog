@@ -61,20 +61,67 @@ main {
         width: 75%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: 2vh;
-        font-family: roboto;
-        > div:nth-child(1) {
+        align-items: flex-start;
+        row-gap: 3vh;
+        > article:nth-child(1) {
             width: 100%;
             display: flex;
-            justify-content: start;
-            h2 {
-                font-size: calc(12px + 3vw);
-                color: $green;
+            flex-direction: column;
+            align-items: flex-start;
+            > div:nth-child(1) {
+                width: 100%;
+                display: flex;
+                justify-content: start;
+                h2 {
+                    font-size: calc(12px + 3vw);
+                    color: $green;
+                }
             }
         }
-        > article {
+        > article:nth-child(2) {
+            width: 100%;
+            display: none;
+            > form {
+                width: 100%;
+                > div {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    row-gap: 2vh;
+                    > div {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 2vw;
+                        > textarea {
+                            padding: 1vw;
+                            width: 60%;
+                            border-radius: 5px; 
+                        }
+                    }
+                    > div:nth-child(1) {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    > div:nth-child(2) {
+                        display: flex;
+                        justify-content: end;
+                    }
+                }
+            }
+        }
+    }
+    > section:nth-child(3) {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        row-gap: 4vh;
+        font-family: roboto;
+        > .comms {
+            width: 100%;
             padding: 2vw;
             border: solid black 1px;
             background-color: white;

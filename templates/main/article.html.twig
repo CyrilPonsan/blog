@@ -7,6 +7,10 @@
 	{{ parent() }}
 	<link rel="stylesheet" href="css/article.css">
 {% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+	<script type="module" src="js/article.js"></script>
+{% endblock %}
 
 {% block body %}
 	<main>
@@ -36,25 +40,38 @@
 			</article>
 		</section>
 		<section>
-			<div>
-				<h2>{{ total }}
-					Commentaires :
-				</h2>
-			</div>
-			{% for commentaire in commentaires %}
-				<article>
-					<div>
-						{{ commentaire.user.pseudo }}
-						le
-						{{ commentaire.date | date("d/m/Y")}}
-					</div>
-					<div>
-						<p>
-							{{ commentaire.contenu }}
-						</p>
-					</div>
+			<article>
+				<div>
+					<h2>{{ total }}
+						Commentaires :
+					</h2>
+				</div>
+				<div>
+					<h3>
+						<a id="addComm" href="">Rédiger un commentaire :
+						</a>
+					</h3>
+				</div>
+			</article>
+			<article id="comm">
+				{{ form((commForm) )}}
 				</article>
-			{% endfor %}
-		</section>
-	</main>
-{% endblock %}
+			</section>
+			<section>
+				{% for commentaire in article.commentaires %}
+					<article class="comms">
+						<div>
+							{{ commentaire.user.pseudo }}
+							le
+							{{ commentaire.date | date("d/m/Y")}}
+						</div>
+						<div>
+							<p>
+								{{ commentaire.contenu }}
+							</p>
+						</div>
+					</article>
+				{% endfor %}
+			</section>
+		</main>
+	{% endblock %}
