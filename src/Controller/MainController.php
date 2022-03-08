@@ -46,18 +46,18 @@ class MainController extends AbstractController
         if (session_status() === 0) :
             session_start();
         endif;
-        if (!isset($_SESSION['vues'])) :
-            $_SESSION['vues'] = array();
-        endif;
-        if (!in_array($id, $_SESSION['vues'])) :
+        if (!isset($_SESSION['vues']) || !in_array($id, $_SESSION['vues'])) :
+            if (!isset($_SESSION['vues'])) :
+                dd($_SESSION['vues']);
+                $_SESSION['vues'] = array();
+            endif;
             $manager = $doctrine->getManager();
             $article->setNbreVues($article->getNbreVues() + 1);
             $manager->flush();
             array_push($_SESSION['vues'], $id);
-            //dd($_SESSION['vues']);
         endif;
         $total = count($commentaireRepository->findBy(["article" => $id]));
-
+/*
         $commForm = $this->createForm(CommentaireType::class);
         $commForm->handleRequest($request);
 
@@ -72,11 +72,11 @@ class MainController extends AbstractController
             $manager->flush();
             return $this->redirectToRoute('app_article', ["id" => $id]);
         endif;
-
+*/
         return $this->render('main/article.html.twig', [
             "article" => $article,
             "total" => $total,
-            "commForm" => $commForm->createView(),
+            //"commForm" => $commForm->createView(),
         ]);
     }
 
