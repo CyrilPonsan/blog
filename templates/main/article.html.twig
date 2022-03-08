@@ -45,16 +45,24 @@
 					<h2>{{ total }}
 						Commentaires :
 					</h2>
-				</div>
+				{% if app.user %}			
 				<div>
 					<h3>
 						<a id="addComm" href="">Rédiger un commentaire :
 						</a>
-					</h3>
+					</h3>	
 				</div>
+				{% else %}			
+				<div>
+					<h3>
+						<a id="addComm" href="{{path('app_login', { id: article.id })}}">Rédiger un commentaire :
+						</a>
+					</h3>	
+				</div>					
+				{% endif %}
 			</article>
 			<article id="comm">
-				{#{ form((commForm) )}#}
+				{{ form((commForm) )}}
 				</article>
 			</section>
 			<section>
