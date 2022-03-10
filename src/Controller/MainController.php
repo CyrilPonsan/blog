@@ -42,7 +42,7 @@ class MainController extends AbstractController
     #[Route('/article-{id}', name: 'app_article')]
     public function article(UserRepository $userRepository, Request $request, ManagerRegistry $doctrine, ArticleRepository $articleRepository, CommentaireRepository $commentaireRepository, int $id): Response
     {
-        $article = $articleRepository->findOneBy(["id" => $id]);
+        $article = $articleRepository->find($id);
         $article->setContenu(strip_tags($article->getContenu()));
         $total = count($commentaireRepository->findBy([
             "article" => $id,

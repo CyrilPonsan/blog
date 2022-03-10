@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+$textSize: calc(12px + .45vw);
+$extrasSize: calc(12px + .25vw);
+$textFont: quicksand;
+main {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5vh;
+    font-family: $textFont;
+    font-size: $extrasSize;
+    font-weight: bold;
+    > section:nth-child(1) {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        > article {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2vh;
+            align-items: center;
+            justify-content: space-evenly;
+            > div:nth-child(1) {
+                > img {
+                    width: 100%;
+                    height: auto;
+                }
+                display: flex;
+                flex-direction: column;
+                row-gap: 1vh;
+                > .contenu {
+                    font-size: $textSize;
+                    text-align: justify;
+                }
+                > div {
+                    display: flex;
+                    justify-content: end;
+                    > h2 {
+                        font-size: $extrasSize;
+                        font-weight: bold;
+                    }
+                }
+            }
+            > div:nth-child(2) {
+                > a {
+                    color: blue;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    > section:nth-child(2) {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        > article {
+            > div:nth-child(1) {
+                > h2 {
+                    font-size: $textSize;
+                    color: green;
+                    font-weight: bold;
+                }
+            }
+            > div:nth-child(2) {
+                a {
+                    color: blue;
+                    font-weight: bold;                    
+                }
+            }
+            #comm {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                > form {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}

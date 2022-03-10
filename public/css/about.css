@@ -1,0 +1,15 @@
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main > section {
+  width: 90%;
+  height: 80%;
+}
+main > section > img {
+  width: 90vw;
+  height: auto;
+}/*# sourceMappingURL=about.css.map */
