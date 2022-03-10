@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:wght@300&display=swap');
 $titre: architects daughter;
-$green: #046908;
+$green: white;
 * {
     margin: 0;
     padding: 0;
@@ -43,14 +43,14 @@ $green: #046908;
   }
 body {
     width: 100vw;
-    background-color: #DADADA;
-    color: $green;
+    background-color: black;
+    color: white;
     display: flex;
     flex-direction: column;
     row-gap: 5vh;
     nav {
         position: relative;
-        background-color: #C4C4C4;
+        background-color: black;
         font-family: $titre;
         width: 100vw;
         display: flex;
@@ -63,7 +63,7 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px black solid;
+            border-bottom: 1px grey solid;
             > div:nth-child(1) {
                 width: 75%;
                 font-size: calc(12px + 8vw);
@@ -78,11 +78,12 @@ body {
             top: 100%;
             width: 100%;
             display: none;
-            background-color: #C4C4C4;
+            background-color: black;
             flex-direction: column;
             align-items: center;
             font-family: roboto;
             padding: .75vh;
+            border: solid grey 1px;
             > div:nth-child(1) {
                 width: 50%;
                 > ul {

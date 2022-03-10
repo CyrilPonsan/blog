@@ -43,18 +43,7 @@ class MainController extends AbstractController
     public function article(UserRepository $userRepository, Request $request, ManagerRegistry $doctrine, ArticleRepository $articleRepository, CommentaireRepository $commentaireRepository, int $id): Response
     {
         $article = $articleRepository->findOneBy(["id" => $id]);
-        if (session_status() === 0) :
-            session_start();
-        endif;
-        if (!isset($_SESSION['vues']) || !in_array($id, $_SESSION['vues'])) :
-            if (!isset($_SESSION['vues'])) :
-                $_SESSION['vues'] = array();
-            endif;
-            $manager = $doctrine->getManager();
-            $article->setNbreVues($article->getNbreVues() + 1);
-            $manager->flush();
-            array_push($_SESSION['vues'], $id);
-        endif;
+        $article->setContenu(strip_tags($article->getContenu()));
         $total = count($commentaireRepository->findBy([
             "article" => $id,
             "publie" => true,

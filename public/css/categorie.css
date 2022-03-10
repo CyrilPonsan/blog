@@ -1,35 +1,22 @@
 main {
   width: 75%;
   height: 50vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 main > section {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 3vh;
+  background-color: white;
 }
-
 main > section > div > a {
   text-decoration: none;
-  color: #046908;
+  color: white;
 }
-
 main > section > div > a > h2 {
+  color: black;
   font-family: roboto;
   font-size: calc(12px + 3vw);
-}
-/*# sourceMappingURL=categorie.css.map */
+}/*# sourceMappingURL=categorie.css.map */
