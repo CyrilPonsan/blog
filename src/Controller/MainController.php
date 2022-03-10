@@ -55,7 +55,10 @@ class MainController extends AbstractController
             $manager->flush();
             array_push($_SESSION['vues'], $id);
         endif;
-        $total = count($commentaireRepository->findBy(["article" => $id]));
+        $total = count($commentaireRepository->findBy([
+            "article" => $id,
+            "publie" => true,
+        ],));
 
         $commForm = $this->createForm(CommentaireType::class);
         $commForm->handleRequest($request);
@@ -63,7 +66,7 @@ class MainController extends AbstractController
         if ($commForm->isSubmitted() && $commForm->isValid()) :
             $comm = $commForm->getData();
             $comm->setDate(new \DateTime());
-            $comm->setPublie(true);
+            $comm->setPublie(false);
             $comm->setArticle($article);
             $comm->setUser($userRepository->findBy(["pseudo" => "tata"])[0]);
             $manager = $doctrine->getManager();

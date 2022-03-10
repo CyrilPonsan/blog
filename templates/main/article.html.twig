@@ -45,41 +45,43 @@
 					<h2>{{ total }}
 						Commentaires :
 					</h2>
-				{% if app.user %}			
-				<div>
-					<h3>
-						<a id="addComm" href="">Rédiger un commentaire :
-						</a>
-					</h3>	
-				</div>
-				{% else %}			
-				<div>
-					<h3>
-						<a id="addComm" href="{{path('app_login', { id: article.id })}}">Rédiger un commentaire :
-						</a>
-					</h3>	
-				</div>					
-				{% endif %}
-			</article>
-			<article id="comm">
-				{{ form((commForm) )}}
-				</article>
-			</section>
-			<section>
-				{% for commentaire in article.commentaires %}
-					<article class="comms">
+					{% if app.user %}
 						<div>
-							{{ commentaire.user.pseudo }}
-							le
-							{{ commentaire.date | date("d/m/Y")}}
-						</div>
-						<div>
-							<p>
-								{{ commentaire.contenu }}
-							</p>
-						</div>
+							<h3>
+								<a id="addComm" href="">Rédiger un commentaire :
+								</a>
+								<article id="comm">
+									{{ form((commForm) )}}
+									</article>
+								</h3>
+							</div>
+						{% else %}
+							<div>
+								<h3>
+									<a id="addComm" href="{{path('app_login', { id: article.id })}}">Rédiger un commentaire :
+									</a>
+								</h3>
+							</div>
+						{% endif %}
 					</article>
-				{% endfor %}
-			</section>
-		</main>
-	{% endblock %}
+				</section>
+				<section>
+					{% for commentaire in article.commentaires %}
+						{% if commentaire.publie %}
+							<article class="comms">
+								<div>
+									{{ commentaire.user.pseudo }}
+									le
+									{{ commentaire.date | date("d/m/Y")}}
+								</div>
+								<div>
+									<p>
+										{{ commentaire.contenu }}
+									</p>
+								</div>
+							</article>
+						{% endif %}
+					{% endfor %}
+				</section>
+			</main>
+		{% endblock %}
