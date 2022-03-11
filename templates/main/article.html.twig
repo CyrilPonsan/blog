@@ -30,25 +30,28 @@
 		</section>
 		<section>
 			<article>
-				<div>
-					<h2>{{ total }}
-						Commentaires :
-					</h2>
-				</div>
-				<a id="addComm" href="">Rédiger un commentaire :
-				</a>
+				{% if not app.user %}
+					<a id="addComm" href="/login">Rédiger un commentaire
+					</a>
+				{% endif %}
+
 				{% if app.user %}
 					<div>
 						<div>
 							<div id="comm">
 								{{ form(commForm) }}
+								</div>
 							</div>
 						</div>
-					</div>
 					{% endif %}
 				</article>
 			</section>
 			<section>
+				<div>
+					<h2>{{ total }}
+						Commentaires :
+					</h2>
+				</div>
 				{% for commentaire in article.commentaires %}
 					{% if commentaire.publie %}
 						<article class="comms">

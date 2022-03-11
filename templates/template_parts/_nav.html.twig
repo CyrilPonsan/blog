@@ -15,7 +15,11 @@
 					<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{path('app_about')}}">A Propos</a>
 				</li>
 				<li class="nav-item">
+				{% if app.user %}
+					<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{path('app_logout')}}">Déonnexion</a>
+				{% else %}
 					<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{path('app_login')}}">Connexion</a>
+				{% endif %}					
 				</li>
 				<li class="nav-item">
 					<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{path('app_register')}}">Inscription</a>

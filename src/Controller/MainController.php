@@ -11,6 +11,7 @@ use App\Repository\CategorieRepository;
 use App\Repository\CommentaireRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +49,9 @@ class MainController extends AbstractController
             "article" => $id,
             "publie" => true,
         ],));
-
+        $manager = $doctrine->getManager();
+        $article->setNbreVues($article->getNbreVues() + 1);
+        $manager->flush();
         $commForm = $this->createForm(CommentaireType::class);
         $commForm->handleRequest($request);
 
