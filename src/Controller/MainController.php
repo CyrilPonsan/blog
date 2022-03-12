@@ -40,7 +40,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/article-{id}', name: 'app_article')]
+    #[Route('/article-{id}', name: 'app_article-{id}')]
     public function article(UserRepository $userRepository, Request $request, ManagerRegistry $doctrine, ArticleRepository $articleRepository, CommentaireRepository $commentaireRepository, int $id): Response
     {
         $article = $articleRepository->find($id);
