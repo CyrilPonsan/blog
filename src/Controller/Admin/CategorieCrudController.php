@@ -18,7 +18,6 @@ class CategorieCrudController extends AbstractCrudController
         return [
             //IdField::new('id'),
             TextField::new('nom'),
-
         ];
     }
     
