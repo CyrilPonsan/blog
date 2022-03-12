@@ -21,6 +21,7 @@ class CommentaireCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        /*
         return [
             //IdField::new('id'),
             DateField::new('date'),
@@ -29,6 +30,7 @@ class CommentaireCrudController extends AbstractCrudController
             AssociationField::new('article'),
             AssociationField::new('user'),
         ];
+        */
     }
 
 }
