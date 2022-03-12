@@ -18,7 +18,7 @@ class CommentaireCrudController extends AbstractCrudController
     {
         return Commentaire::class;
     }
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -30,5 +30,5 @@ class CommentaireCrudController extends AbstractCrudController
             AssociationField::new('user'),
         ];
     }
-    */
+    
 }
