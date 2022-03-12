@@ -23,7 +23,7 @@ class CommentaireCrudController extends AbstractCrudController
     {
         return [
             //IdField::new('id'),
-            DateField::new('date'),
+            //DateField::new('date'),
             TextField::new('contenu'),
             BooleanField::new('publie'),
             AssociationField::new('article'),
