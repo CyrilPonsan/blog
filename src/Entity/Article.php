@@ -82,7 +82,7 @@ class Article
 
     public function setDate(\DateTimeInterface $date): self
     {
-        $this->date = new \DateTime();
+        $this->date = $date;
 
         return $this;
     }
