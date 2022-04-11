@@ -87,7 +87,6 @@ class MainController extends AbstractController
     #[Route('/getStatut', name: 'app_getStatut')]
     public function getStatut(CategorieRepository $categorieRepository): Response
     {
-        $data = strip_tags($_POST['data']);
         $result = $categorieRepository->findAll();
         return $this->json(['statut' => $result]);
     }
