@@ -88,7 +88,7 @@ class MainController extends AbstractController
     public function getStatut(CategorieRepository $categorieRepository): Response
     {
         $data = strip_tags($_POST['data']);
-        $result = $categorieRepository->findOneBy(['nom' => $data]);
+        $result = $categorieRepository->findAll();
         return $this->json(['statut' => $result]);
     }
 
