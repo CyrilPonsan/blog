@@ -89,8 +89,7 @@ class MainController extends AbstractController
     public function getStatut(StatutRepository $statutRepository): Response
     {
         $result = $statutRepository->findAll();
-        return $this->render('main.getStatut.html.twig',
-        ['statut' => $result]);
+        return $this->json(['statut' => $result[0]]);
     }
 
 
