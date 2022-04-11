@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\Statut;
 use App\Entity\User;
 use App\Form\CommentaireType;
 use App\Form\LoginType;
@@ -86,8 +87,14 @@ class MainController extends AbstractController
     }
 
     #[Route('/getStatut', name: 'app_getStatut')]
-    public function getStatut(StatutRepository $statutRepository): Response
+    public function getStatut(StatutRepository $statutRepository, ManagerRegistry $doctrine): Response
     {
+        $manager = $doctrine->getManager();
+        $statut = new Statut();
+        $statut->setDate(new \DateTime());
+        $statut->setEtat(6);
+        $manager->persist($statut);
+        $manager->flush();
         $result = $statutRepository->findAll();
         return $this->json(['statut' => $result[0]]);
     }
