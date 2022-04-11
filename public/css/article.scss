@@ -1,88 +1,138 @@
-$green: #046908;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+$textSize: calc(12px + .45vw);
+$extrasSize: calc(12px + .25vw);
+$textFont: quicksand;
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 5vh;
     width: 100%;
-    height: 50%;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5vh;
+    font-family: $textFont;
+    font-size: $extrasSize;
+    font-weight: bold;
     > section:nth-child(1) {
-        width: 80%;
-        height: 80%;
-        font-family: roboto;
-        article {
-            width: 100%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        > article {
             display: flex;
             flex-direction: column;
-            row-gap: 3vh;
+            row-gap: 2vh;
             align-items: center;
-            justify-content: center;
-            h1 {
-                font-size: calc(12px + 4vw);
-            }
-            p {
-                font-size: calc(12px + 2vw);
-                text-align: justify;
-                color: black;
-            }
-            a {
-                font-size: calc(12px + 1.5vw);
-            }
-            h3 {
-                color: black;
-            }
-            img {
-                width: 100%;
-                height: auto;
-            }
+            justify-content: space-evenly;
             > div:nth-child(1) {
+                > img {
+                    width: 100%;
+                    height: auto;
+                }
                 display: flex;
                 flex-direction: column;
-                row-gap: 2vh;
+                row-gap: 1vh;
+                > .contenu {
+                    font-size: $textSize;
+                    text-align: justify;
+                }
                 > div {
-                    width: 100%;
                     display: flex;
                     justify-content: end;
-                    align-items: center;
-                    column-gap: 1vw;
-                    > h2:nth-child(1) {
-                        color: black;
+                    > h2 {
+                        font-size: $extrasSize;
+                        font-weight: bold;
                     }
+                }
+            }
+            > div:nth-child(2) {
+                > a {
+                    color: blue;
+                    font-weight: bold;
                 }
             }
         }
     }
     > section:nth-child(2) {
-        width: 75%;
+        width: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        > article {
+            > div:nth-child(2) {
+                a {
+                    color: blue;
+                    font-weight: bold;                    
+                }
+            }
+            #comm {
+                display: flex;
+                align-items: center;
+                > form {
+                    width: 60%;
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 1vh;
+                        > div {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                        > div:nth-child(2) {
+                            display: flex;
+                            justify-content: end;
+                            > button {
+                                font-size: $extrasSize;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > section:nth-child(3) {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
         row-gap: 2vh;
-        font-family: roboto;
-        > div:nth-child(1) {
-            width: 100%;
-            display: flex;
-            justify-content: start;
-            h2 {
-                font-size: calc(12px + 3vw);
-                color: $green;
+        > div {
+            > h2 {
+                font-size: $textSize;
+                color: green;
+                font-weight: bold;
             }
         }
         > article {
-            color: black;
-            display: flex;
-            flex-direction: column;
-            row-gap: 1vh;  
-            align-items: start;
+            width: 80%;
             > div:nth-child(1) {
+                font-size: $extrasSize;
+                font-weight: bold;
                 color: blue;
-                font-size: calc(12px + 1.5vw);
             }
             > div:nth-child(2) {
-                > p {
-                    font-size: calc(12px + 2vw);
+                padding: .5vw;
+                border: 1px black solid;
+                font-size: $textSize;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    body {
+        > main {
+            > section:nth-child(1) {
+                width: 90%;
+            }
+            > section:nth-child(2), > section:nth-child(3) {
+                width: 80%;
+            }
+            > section:nth-child(3) {
+                > article {
+                    > #comm {
+                        width: 100%;
+                        > form {
+                            width: 75%;
+                        }
+                    }
                 }
             }
         }

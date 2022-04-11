@@ -37,6 +37,15 @@ class AppFixtures extends Fixture
         $user1->setPassword($hash);
         $manager->persist($user1);
 
+        $admin = new User();
+        $admin->setEmail("admin@admin.toto");
+        $admin->setDate(new \DateTime());
+        $admin->setPseudo('WonderMecano');
+        $hash = $this->passwordHasher->hashPassword($admin, "toto");
+        $admin->setPassword($hash);
+        $admin->setRoles(['ROLE_ADMIN']);
+        $manager->persist($admin);
+
         for ($i = 1; $i < 4; $i++) :
 
             $cat = new Categorie();

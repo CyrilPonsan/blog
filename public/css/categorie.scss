@@ -1,3 +1,5 @@
+$text: white;
+$titre: black;
 main {
     width: 75%;
     height: 50vh;
@@ -8,11 +10,13 @@ main {
         display: flex;
         flex-direction: column;
         row-gap: 3vh;
+        background-color: white;
         > div {
             > a {
                 text-decoration: none;
-                color: #046908;
+                color: $text;
                 > h2 {
+                    color: $titre;
                     font-family: roboto;
                     font-size: calc(12px + 3vw);
                 }
