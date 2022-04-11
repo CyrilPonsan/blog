@@ -84,6 +84,14 @@ class MainController extends AbstractController
         return $this->render('main/about.html.twig', []);
     }
 
+    #[Route('/getStatut', name: 'app_getStatut')]
+    public function getStatut(CategorieRepository $categorieRepository): Response
+    {
+        $data = strip_tags($_POST['data']);
+        $result = $categorieRepository->findOneBy(['nom' => $data]);
+        return $this->json(['statut' => $result]);
+    }
+
 
     /*
     #[Route('/connexion', name: 'app_connexion')]
