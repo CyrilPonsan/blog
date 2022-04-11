@@ -9,6 +9,7 @@ use App\Form\LoginType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\CommentaireRepository;
+use App\Repository\StatutRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectManager;
@@ -85,9 +86,9 @@ class MainController extends AbstractController
     }
 
     #[Route('/getStatut', name: 'app_getStatut')]
-    public function getStatut(CategorieRepository $categorieRepository): Response
+    public function getStatut(StatutRepository $statutRepository): Response
     {
-        $result = $categorieRepository->findAll();
+        $result = $statutRepository->findAll();
         return $this->json(['statut' => $result]);
     }
 
